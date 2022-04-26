@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "zadatak2.py",
+            "type": "python",
+            "request": "launch",
+            "program": "G:\\SE\\Git\\venice_and_genoa\\src\\zadatak 2\\zadatak2.py",
+            "args": ["res/train.csv", "res/test_preview.csv"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
