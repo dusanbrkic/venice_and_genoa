@@ -97,38 +97,25 @@ def rmse(true_y, pred_y):
 
 
 def main():
-    #train_file_path = sys.argv[1]
-    train_file_path = "G:\\SE\\Git\\venice_and_genoa\\src\\zadatak 2\\res\\train.csv"
-    #test_file_path = sys.argv[2]
-    test_file_path = "G:\\SE\\Git\\venice_and_genoa\\src\\zadatak 2\\res\\test_set.csv"
     print(sys.argv)
+    train_file_path = sys.argv[1]
+    test_file_path = sys.argv[2]
+
     train_data = pandas.read_csv(train_file_path)
     test_data = pandas.read_csv(test_file_path)
 
-    zvanja = pandas.get_dummies(train_data["zvanje"])
-    oblasti = pandas.get_dummies(train_data["oblast"])
-    train_data.drop(["zvanje", "oblast", "pol"], inplace=True, axis=1)
-    train_data = train_data.join(zvanja)
-    train_data.drop(["AsstProf"], inplace=True, axis=1)
-    train_data = train_data.join(oblasti["A"])
+    zvanja = pandas.get_dummies(train_data.iloc[:, 0])
+    oblasti = pandas.get_dummies(train_data.iloc[:, 1])
+    train_data = zvanja.join(oblasti).join(train_data.iloc[:, [2,3,5]])
 
-    zvanja_test = pandas.get_dummies(test_data["zvanje"])
-    oblasti_test = pandas.get_dummies(test_data["oblast"])
-    test_data.drop(["zvanje", "oblast", "pol"], inplace=True, axis=1)
-    test_data = test_data.join(zvanja_test)
-    test_data.drop(["AsstProf"], inplace=True, axis=1)
-    test_data = test_data.join(oblasti_test["A"])
+    zvanja_test = pandas.get_dummies(test_data.iloc[:, 0])
+    oblasti_test = pandas.get_dummies(test_data.iloc[:, 1])
+    test_data = zvanja_test.join(oblasti_test).join(test_data.iloc[:, [2,3,5]])
 
-    plate = train_data["plata"]
-    train_data.drop(["plata"], inplace=True, axis=1)
-
-    plate_test = test_data["plata"]
-    test_data.drop(["plata"], inplace=True, axis=1)
-
-    train_X = train_data.to_numpy()
-    train_y = plate.to_numpy()
-    test_X = test_data.to_numpy()
-    test_y = plate_test.to_numpy()
+    train_X = train_data.iloc[:, 0:-1].to_numpy()
+    train_y = train_data.iloc[:, -1].to_numpy()
+    test_X = test_data.iloc[:, 0:-1].to_numpy()
+    test_y = test_data.iloc[:, -1].to_numpy()
 
     train_X = stepenuj_matricu(train_X, 1)
     train_X = dodaj_jedinice(train_X)
