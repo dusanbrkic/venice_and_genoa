@@ -131,3 +131,7 @@ dmypy.json
 #pycharm
 .idea
 *.iml
+
+#vscode
+.vscode
+.vs
