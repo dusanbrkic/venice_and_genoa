@@ -20,7 +20,7 @@ def main():
     # test_file_path = sys.argv[2]
 
     train_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\train.csv"
-    test_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\test_preview.csv"
+    test_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\test.csv"
 
     train_data = pd.read_csv(train_file_path)
     test_data = pd.read_csv(test_file_path)
@@ -30,6 +30,14 @@ def main():
     train_data = pre_process(train_data)
     test_data = pre_process(test_data)
 
+    train_data.query("income != 3010", inplace=True) # outliers in africa
+    train_data.query("income != 1000", inplace=True) # outliers in africa
+    train_data.query("income != 5523", inplace=True) # outliers in america
+    train_data.query("income != 4751", inplace=True) # outliers in america
+    train_data.query("income != 2526", inplace=True) # outliers in asia
+    train_data.query("income != 1530", inplace=True) # outliers in asia
+    train_data.query("income != 406 or region != 3", inplace=True) # outliers in europe
+
 
     train_X = train_data.iloc[:, [0, 1, 3]]
     train_Y = train_data.iloc[:, 2]
@@ -37,7 +45,7 @@ def main():
     test_X = test_data.iloc[:, [0, 1, 3]]
     test_Y = test_data.iloc[:, 2]
 
-    mix = GaussianMixture(n_components=5, random_state=2, covariance_type="diag")
+    mix = GaussianMixture(n_components=4, random_state=38953, covariance_type="tied", init_params="random")
 
     mix.fit(train_X)
     predict_Y = mix.predict(test_X)
