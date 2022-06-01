@@ -16,11 +16,11 @@ def pre_process(df: pd.DataFrame):
 
 
 def main():
-    # train_file_path = sys.argv[1]
-    # test_file_path = sys.argv[2]
+    train_file_path = sys.argv[1]
+    test_file_path = sys.argv[2]
 
-    train_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\train.csv"
-    test_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\test.csv"
+    # train_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\train.csv"
+    # test_file_path = "C:\\Users\\Dusan\\Documents\\github repos\\venice_and_genoa\\src\\zadatak5\\res\\test.csv"
 
     train_data = pd.read_csv(train_file_path)
     test_data = pd.read_csv(test_file_path)
@@ -51,6 +51,33 @@ def main():
     predict_Y = mix.predict(test_X)
     
     print(v_measure_score(test_Y, predict_Y))
+
+    # ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    # ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠽⡿⠦⣔⣩⣙⣿⣿⣿⡟⢝⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    # ⠿⠿⠿⠿⠿⠿⣿⣿⡿⠿⠟⠋⠔⠁⠀⠀⡀⠀⠩⣉⠘⢿⠹⠿⣞⠎⠟⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣥⣭⠻⡿⡹⣿⡿⣿⣿⣿⣿
+    # ⠀⠀⠀⠀⠀⠀⣠⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠈⠿⠙⠻⣧⠀⠀⠉⢿⡀⠀⠀⠉
+    # ⠀⠀⠀⠀⠀⣼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢦⠓⣼⡧⠀⠀⠈⢇⠀⠀⠀
+    # ⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⣿⣿⠀⡀⠀⠀⢸⠀⠀⠀
+    # ⠀⠀⠀⢠⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⢨⣾⠟⢸⣾⣿⠁⠀⠘⠀⠀⠀
+    # ⠀⠀⠀⣼⣷⣆⢤⣤⡜⠀⠀⠤⠽⣿⣶⣶⣼⣀⢰⣀⣀⣁⣀⣀⡀⠀⠘⠅⠨⣾⣿⣿⡇⠀⠀⡇⠀⠀
+    # ⠀⠀⢠⣿⣿⣿⡎⠉⡷⣼⣶⢶⣶⡿⣿⠟⡿⠉⢽⢽⣿⣿⣷⡦⠬⣭⡕⣆⠈⢿⣿⣿⣗⢠⠃⣿⠀⠀
+    # ⠉⠉⣿⣿⣿⣿⡀⠀⠑⢭⡀⠀⠀⠠⢂⡜⠀⠀⢸⡏⡏⣻⣝⡿⣷⣿⣿⣿⣿⣷⣶⣿⣿⡜⠀⣿⠀⠀
+    # ⠀⠀⢿⣿⣿⣿⠃⠀⠀⠀⠈⠙⠉⢉⡍⠀⠀⢀⣷⣳⣔⡘⢦⣀⣛⣩⡟⢉⣿⣿⣦⣶⣾⣶⣶⣿⠤⣤
+    # ⠀⠀⠈⣿⣿⣿⠀⠀⠆⠀⠀⠀⢀⠎⣀⢠⣄⣸⣿⡟⣿⡴⠠⢈⣉⣥⣞⣏⣥⣿⣿⣿⣿⣿⣿⣟⠀⠀
+    # ⠀⠀⠀⠹⡜⡏⠀⠀⠀⠀⠀⡰⠃⠘⠿⢿⣿⣿⣿⣿⠏⢳⡀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀
+    # ⠀⠀⠀⠀⠇⠑⡄⠀⠀⠀⡼⠁⠀⣀⠠⠠⣽⢿⣋⣁⣀⡄⣷⡀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠃⠀⠀
+    # ⠀⠀⠀⠰⠀⠀⡇⣀⡄⠀⢡⠾⠛⠛⢛⣓⣒⠺⠿⣿⣿⣿⣿⡟⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠁⠀⠀⠀
+    # ⠀⠀⢠⠃⠀⠀⢹⣿⠇⢐⠃⠀⣤⡿⠿⠿⣿⣿⣿⣡⣨⣛⣿⣡⣿⣿⣿⣿⣿⡿⠈⠉⠀⠀⠀⠀⠀⠀
+    # ⠀⢠⠃⠀⠀⠀⠀⠻⣀⣹⡀⠁⠀⠀⢤⣄⣀⣀⣙⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
+    # ⡠⠃⠀⠀⠀⠀⠀⠀⠹⣿⡿⣶⣶⣿⣿⣟⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⢤⡄⠀⠀⠀⠀⠀⠀
+    # ⠁⠀⠀⠀⠀⠀⠀⠀⠀⣼⢻⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠁⠀⣼⣿⣆⠀⠀⠀⠀⠀
+    # ⠀⠀⠀⠀⠀⠀⢀⣤⡄⣿⡄⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⣰⣿⣿⣿⣦⠀⠀⠀⠀
+    # ⢀⣀⣠⣤⣤⣴⣿⣿⠇⠘⢧⠀⠊⠻⢿⣿⣿⣿⣿⠿⠛⠋⠁⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣦⣤⣤
+    # ⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⣀⣡⣤⣴⣾⣟⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    # ⣿⣿⣿⣿⡿⠋⠀⠀⣴⣿⣿⡿⢻⣏⣿⣯⣷⡀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    # ⣿⣿⡿⠋⠀⢀⣠⣾⡟⡿⣿⣣⣥⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    # ⣿⡿⠁⢀⠔⠋⠀⠀⡔⡓⣶⣿⣿⣿⣿⠻⠟⠋⠡⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
 
 if __name__ == '__main__':
